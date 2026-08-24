@@ -1,0 +1,20 @@
+<div class="auth-container">
+  @if (!authService.currentUser()) {
+    <h2>Connexion</h2>
+
+    <asl-google-signin-button type="standard" size="large"></asl-google-signin-button>
+
+    @if (errorMessage()) {
+      <p class="error-msg">{{ errorMessage() }}</p>
+    }
+  }
+  @else {
+    <div class="user-card">
+      <img [src]="authService.currentUser()?.picture" alt="Avatar Google" />
+      <h3>Bienvenue, {{ authService.currentUser()?.name }}</h3>
+      <p>{{ authService.currentUser()?.email }}</p>
+
+      <button (click)="authService.logout()">Déconnexion</button>
+    </div>
+  }
+</div>
