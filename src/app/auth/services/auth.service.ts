@@ -6,7 +6,7 @@ import { Observable, tap } from "rxjs";
 import AuthResponse from "../models/auth-response.model";
 
 const LOCALSTORAGEKEY_TOKEN = '/kingmaker/auth/token';
-const LOCALSTORAGEKEY_USER = '/kinmaker/auth/user';
+const LOCALSTORAGEKEY_USER = '/kingmaker/auth/user';
 
 @Injectable({
   providedIn: 'root',
