@@ -12,7 +12,8 @@
     <div class="user-card">
       <img [src]="authService.currentUser()?.picture" alt="Avatar Google" />
       <h3>Bienvenue, {{ authService.currentUser()?.name }}</h3>
-      <p>{{ authService.currentUser()?.email }}</p>
+      <p>email : {{ authService.currentUser()?.email }}</p>
+      <p>role: {{ authService.currentUser()?.role }}</p>
 
       <button (click)="authService.logout()">Déconnexion</button>
     </div>

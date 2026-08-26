@@ -36,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/kingmaker-ng/",
               "budgets": [
                 {
                   "type": "initial",
@@ -60,6 +61,17 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+            },
+            "local-prod": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local-prod.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -72,6 +84,9 @@
             },
             "development": {
               "buildTarget": "kingmaker-ng:build:development"
+            },
+            "local-prod": {
+              "buildTarget": "kingmaker-ng:build:local-prod"
             }
           },
           "defaultConfiguration": "development"
