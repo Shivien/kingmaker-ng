@@ -2,6 +2,7 @@ import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-
 import { Component, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { AuthStore } from '../../../shared/store/auth.store';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { AuthStore } from '../../../shared/store/auth.store';
   styleUrl: './login.scss',
 })
 export class Login implements OnInit {
+  private readonly googleProviderId = environment.googleClientId;
   private readonly socialAuthService = inject(SocialAuthService);
   public readonly authService = inject(AuthService);
   protected readonly authStore = inject(AuthStore);
@@ -33,5 +35,9 @@ export class Login implements OnInit {
         });
       },
     });
+  }
+
+  protected signIn() {
+    this.socialAuthService.signIn(this.googleProviderId);
   }
 }

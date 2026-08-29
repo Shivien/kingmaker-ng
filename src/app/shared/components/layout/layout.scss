@@ -1,0 +1,35 @@
+.app-toolbar {
+  display: flex;
+  align-items: center;
+
+  .brand .title {
+    display: flex;
+    gap: .5em;
+    place-items: center;
+    color: currentColor;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: var(--size-3);
+
+    .user__picture {
+      display: flex;
+      place-items: center;
+
+      img {
+        --size: 28px;
+        aspect-ratio: 1 / 1;
+        height: var(--size);
+        width: var(--size);
+      }
+    }
+  }
+}

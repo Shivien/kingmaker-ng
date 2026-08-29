@@ -53,7 +53,7 @@ export const AuthStore = signalStore(
         token: null,
         error: null,
       });
-      router.navigate(['/login']);
+      router.navigate(['/']);
     },
     // Gestion des erreurs.
     setError(errorMessage: string): void {
