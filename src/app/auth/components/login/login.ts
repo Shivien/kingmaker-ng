@@ -1,6 +1,7 @@
 import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { AuthStore } from '../../../shared/store/auth.store';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { AuthService } from '../../services/auth.service';
 export class Login implements OnInit {
   private readonly socialAuthService = inject(SocialAuthService);
   public readonly authService = inject(AuthService);
+  protected readonly authStore = inject(AuthStore);
 
   protected readonly errorMessage = signal<string | null>(null);
 

@@ -1,0 +1,33 @@
+<div class="datatable-container">
+  <table class="datatable">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Email</th>
+        <th>Nom</th>
+        <th>Rôle</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of items(); track $index) {
+        <tr>
+          <td>
+            <img
+              [src]="$safeNavigationMigration(item.picture)"
+              alt="Avatar Google"
+            />
+          </td>
+          <td>
+            {{ item.email }}
+          </td>
+          <td>
+            {{ item.name }}
+          </td>
+          <td>
+            {{ item.role }}
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
