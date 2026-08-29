@@ -2,6 +2,7 @@
   @if (authStore.isAuthenticated()) {
     <div class="user-card">
       <img
+        referrerpolicy="no-referrer"
         [src]="$safeNavigationMigration(authStore.userPicture())"
         alt="Avatar Google"
       />
