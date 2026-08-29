@@ -7,10 +7,12 @@
     @if (errorMessage()) {
       <p class="error-msg">{{ errorMessage() }}</p>
     }
-  }
-  @else {
+  } @else {
     <div class="user-card">
-      <img [src]="authService.currentUser()?.picture" alt="Avatar Google" />
+      <img
+        [src]="$safeNavigationMigration(authService.currentUser()?.picture)"
+        alt="Avatar Google"
+      />
       <h3>Bienvenue, {{ authService.currentUser()?.name }}</h3>
       <p>email : {{ authService.currentUser()?.email }}</p>
       <p>role: {{ authService.currentUser()?.role }}</p>

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './auth/components/login/login';
 
@@ -6,7 +6,8 @@ import { Login } from './auth/components/login/login';
   selector: 'app-root',
   imports: [RouterOutlet, Login],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('kingmaker-ng');

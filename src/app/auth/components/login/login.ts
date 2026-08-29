@@ -1,11 +1,12 @@
 import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-social-login';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   imports: [GoogleSigninButtonModule],
   templateUrl: './login.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './login.scss',
 })
 export class Login implements OnInit {
@@ -26,9 +27,9 @@ export class Login implements OnInit {
           error: (err) => {
             console.error('Erreur Backend API:', err);
             this.errorMessage.set('Erreur de connexion avec le serveur Express.');
-          }
+          },
         });
-      }
+      },
     });
   }
 }
