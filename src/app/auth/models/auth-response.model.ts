@@ -1,4 +1,4 @@
-import User from "../../shared/models/user.model";
+import User from "../../core/models/user.model";
 
 export default interface AuthResponse {
   token: string;

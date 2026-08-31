@@ -1,8 +1,8 @@
 import { inject, Injectable } from "@angular/core";
 import { environment } from "../../../environments/environment";
 import { HttpClient } from "@angular/common/http";
-import ListResponse from "../../shared/models/list-response.model";
-import User from "../../shared/models/user.model";
+import ListResponse from "../../core/models/list-response.model";
+import User from "../../core/models/user.model";
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +13,10 @@ export class UserService {
 
   list() {
     return this.httpClient.get<ListResponse<User>>(this.apiUrl);
+  }
+
+  read(id: string) {
+    return this.httpClient.get<User>(`${this.apiUrl}/${id}`)
   }
 
 }

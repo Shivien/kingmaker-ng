@@ -1,10 +1,9 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { environment } from "../../../environments/environment";
-import User from "../../shared/models/user.model";
 import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
 import AuthResponse from "../models/auth-response.model";
-import { AuthStore } from "../../shared/store/auth.store";
+import { AuthStore } from "../../core/store/auth.store";
 
 const LOCALSTORAGEKEY_TOKEN = '/kingmaker/auth/token';
 const LOCALSTORAGEKEY_USER = '/kingmaker/auth/user';

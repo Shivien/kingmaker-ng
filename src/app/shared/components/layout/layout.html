@@ -27,6 +27,10 @@
           <mat-icon>person</mat-icon>
           <span>Profil (WIP)</span>
         </button>
+        <button mat-menu-item routerLink="/admin/user/list">
+          <mat-icon>groups</mat-icon>
+          <span>Utilisateurs</span>
+        </button>
         <button mat-menu-item (click)="authService.logout()">
           <mat-icon>close</mat-icon>
           <span>Déconnexion</span>

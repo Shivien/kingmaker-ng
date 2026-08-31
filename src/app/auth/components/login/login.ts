@@ -1,7 +1,7 @@
 import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { AuthStore } from '../../../shared/store/auth.store';
+import { AuthStore } from '../../../core/store/auth.store';
 import { environment } from '../../../../environments/environment';
 
 @Component({

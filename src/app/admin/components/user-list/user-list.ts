@@ -1,11 +1,14 @@
 import { Component, effect, inject, signal } from '@angular/core';
+import { AuthStore } from '../../../core/store/auth.store';
 import { UserService } from '../../services/user.service';
-import { AuthStore } from '../../../shared/store/auth.store';
-import User from '../../../shared/models/user.model';
+import User from '../../../core/models/user.model';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-user-list',
-  imports: [],
+  imports: [MatButtonModule, MatIcon, MatTableModule],
   templateUrl: './user-list.html',
   styleUrl: './user-list.scss',
 })
@@ -17,6 +20,7 @@ export class UserList {
   protected readonly items = signal<User[]>([]);
 
   protected loading: boolean = true;
+  protected displayedColumns = ['avatar', 'name', 'email', 'role', 'actions'];
 
   constructor() {
     effect(() => {

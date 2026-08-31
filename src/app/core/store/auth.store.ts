@@ -1,5 +1,5 @@
 import { patchState, signalStore, withComputed, withMethods, withState } from "@ngrx/signals";
-import User from "../models/user.model";
+import User from "../../core/models/user.model";
 import { computed, inject } from "@angular/core";
 import { Router } from "@angular/router";
 
