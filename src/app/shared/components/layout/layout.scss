@@ -1,6 +1,12 @@
+.layout {
+  min-height: 100dvh;
+}
+
 .app-toolbar {
+  background: var(--mat-sys-primary-container);
   display: flex;
   align-items: center;
+  gap: var(--size-3);
 
   .brand .title {
     display: flex;
@@ -18,7 +24,7 @@
   .user {
     display: flex;
     align-items: center;
-    gap: var(--size-3);
+    gap: var(--size-2);
 
     .user__picture {
       display: flex;
@@ -35,5 +41,27 @@
 }
 
 .main-content {
+  box-sizing: border-box;
+  padding-block: var(--size-2);
   padding-inline: var(--size-3);
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidenav-container {
+  flex-grow: 1;
+
+  mat-sidenav {
+    width: 250px;
+  }
+
+  .nav-title {
+    font-weight: bold;
+    padding-block: var(--size-2);
+    padding-inline: var(--size-3);
+  }
 }

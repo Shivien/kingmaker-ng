@@ -1,0 +1,17 @@
+.container { display: flex; justify-content: center; padding: var(--size-5); }
+
+.card-edit { width: 100%; max-width: 500px; }
+.content { margin-top: var(--size-3); }
+
+.full-width {
+  width: 100%;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--size-5);
+}
+
+.actions { display: flex; justify-content: flex-end; margin-top: var(--size-3); }
+.error-msg { color: var(--mat-sys-error, red); text-align: center; }

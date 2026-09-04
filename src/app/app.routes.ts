@@ -24,8 +24,29 @@ export const routes: Routes = [
           },
           {
             title: 'Kingmaker / Administration / Édition d\'un utilisteur',
-            path: 'user/edit/:id',
+            path: 'user/:id/edit',
             loadComponent: () => import('./admin/components/user-edit/user-edit').then(m => m.UserEdit),
+          },
+        ],
+      },
+      {
+        path: 'ose',
+        canActivateChild: [roleGuard(['administrator'])],
+        children: [
+          {
+            title: 'OSE / Personnages',
+            path: 'character/list',
+            loadComponent: () => import('./ose/components/character-list/character-list').then(m => m.CharacterList),
+          },
+          {
+            title: 'OSE / Nouveau personnage',
+            path: 'character/new',
+            loadComponent: () => import('./ose/components/character-edit/character-edit').then(m => m.CharacterEdit),
+          },
+          {
+            title: 'OSE / Modifier personnage',
+            path: 'character/:id/edit',
+            loadComponent: () => import('./ose/components/character-edit/character-edit').then(m => m.CharacterEdit),
           },
         ],
       },

@@ -1,11 +1,21 @@
 <mat-toolbar color="primary" class="app-toolbar">
+  @if (screen.isMobile()) {
+    <button matIconButton (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  }
+
   <div class="brand">
     <a class="title" routerLink="/">
-      <mat-icon>home</mat-icon>
+      @if (screen.isDesktop()) {
+        <mat-icon>home</mat-icon>
+      }
       <span>Kingmaker</span>
     </a>
   </div>
+
   <div class="spacer"></div>
+
   <div class="user-section">
     @if (authStore.isAuthenticated()) {
       <button matButton [matMenuTriggerFor]="userMenu">
@@ -17,9 +27,11 @@
               alt="Avatar"
               />
           </div>
-          <div class="user__name">
-            {{ authStore.userName() }}
-          </div>
+          @if (screen.isDesktop()) {
+            <div class="user__name">
+              {{ authStore.userName() }}
+            </div>
+          }
         </div>
       </button>
       <mat-menu #userMenu="matMenu">
@@ -43,8 +55,28 @@
   </div>
 </mat-toolbar>
 
-<p>SIDEBAR</p>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #sidenav
+    [mode]="screen.isMobile() ? 'over' : 'side'"
+    [opened]="!screen.isMobile()"
+  >
+    <mat-nav-list>
+      <div class="nav-title">Old School Essentials</div>
+      <a
+        mat-list-item
+        (click)="closeOnMobile(sidenav)"
+        routerLink="/ose/character/list"
+        routerLinkActive="active"
+      >
+        Personnages
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-<main class="main-content">
-  <router-outlet></router-outlet>
-</main>
+  <mat-sidenav-content>
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

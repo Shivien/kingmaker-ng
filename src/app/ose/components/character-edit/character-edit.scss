@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  .character-card {
+    max-width: 650px;
+    width: 100%;
+  }
+
+  .content {
+    margin-top: 1rem;
+  }
+}
+
+.full-width { width: 100%; }
+
+.section { margin-bottom: 1.5rem; }
+.divider { margin: 2rem 0; border: none; border-top: 1px solid #ccc; }
+.spinner-container { display: flex; justify-content: center; padding: 2rem; }
+.actions { display: flex; justify-content: flex-end; }
+.spell-form { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.level-input { width: 100px; }
+.item-actions { display: flex; gap: 0.5rem; align-items: center; }
+.empty-msg { color: #666; font-style: italic; }
