@@ -1,0 +1,97 @@
+<div class="container">
+  <mat-card class="character-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{ isEditMode() ? 'Modifier le personnage' : 'Nouveau personnage' }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="content">
+      @if (loading()) {
+        <div class="spinner-container">
+          <mat-spinner diameter="40"></mat-spinner>
+        </div>
+      }
+      @else {
+        <div class="section">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nom du personnage</mat-label>
+            <input matInput [formControl]="nameControl" />
+            @if (nameControl.hasError('required')) {
+              <mat-error>Le nom est obligatoire.</mat-error>
+            }
+          </mat-form-field>
+
+          <div class="actions">
+            <button
+              mat-raised-button
+              color="primary"
+              type="button"
+              [disabled]="nameControl.invalid || saving()"
+              (click)="onSubmit()"
+            >
+              {{ isEditMode() ? 'Enregister le nom' : 'Créer le personnage' }}
+            </button>
+          </div>
+        </div>
+
+        @if (isEditMode() && character()) {
+          <hr class="divider" />
+
+          <div class="section">
+            <h3>Ajouter un sort connu</h3>
+            <div class="spell-form">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Nom du sort</mat-label>
+                <input matInput [formControl]="newSpellNameControl" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Niveau</mat-label>
+                <input matInput type="number" [formControl]="newSpellLevelControl" />
+              </mat-form-field>
+
+              <button
+                mat-flat-button
+                color="accent"
+                type="button"
+                [disabled]="newSpellNameControl.invalid || newSpellLevelControl.invalid || saving()"
+                (click)="addKnownSpell()"
+              >
+                Ajouter le sort
+              </button>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Gestion des sorts connus</h3>
+            @if (knownSpells().length === 0) {
+              <p class="empty-msg">Aucun sort connu pour le moment.</p>
+            }
+            @else {
+              <mat-list>
+                @for (spell of knownSpells(); track spell._id) {
+                  <mat-list-item>
+                    <span matListItemTitle>
+                      {{ spell.level }} - {{ spell.name }}
+                    </span>
+                    <div matListItemMeta class="item-actions">
+                      <button
+                        mat-icon-button
+                        color="warn"
+                        type="button"
+                        (click)="deleteKnownSpell(spell._id!)"
+                      >
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </div>
+                  </mat-list-item>
+                }
+              </mat-list>
+            }
+          </div>
+        }
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

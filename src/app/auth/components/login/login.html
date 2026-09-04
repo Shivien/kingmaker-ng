@@ -1,5 +1,18 @@
 <div class="auth-container">
-  @if (!authService.currentUser()) {
+  @if (authStore.isAuthenticated()) {
+    <div class="user-card">
+      <img
+        referrerpolicy="no-referrer"
+        [src]="$safeNavigationMigration(authStore.userPicture())"
+        alt="Avatar Google"
+      />
+      <h3>Bienvenue, {{ authStore.userName() }}</h3>
+      <p>email : {{ authStore.userEmail() }}</p>
+      <p>role: {{ authStore.userRole() }}</p>
+
+      <button (click)="authService.logout()">Déconnexion</button>
+    </div>
+  } @else {
     <h2>Connexion</h2>
 
     <asl-google-signin-button type="standard" size="large"></asl-google-signin-button>
@@ -7,15 +20,5 @@
     @if (errorMessage()) {
       <p class="error-msg">{{ errorMessage() }}</p>
     }
-  }
-  @else {
-    <div class="user-card">
-      <img [src]="authService.currentUser()?.picture" alt="Avatar Google" />
-      <h3>Bienvenue, {{ authService.currentUser()?.name }}</h3>
-      <p>email : {{ authService.currentUser()?.email }}</p>
-      <p>role: {{ authService.currentUser()?.role }}</p>
-
-      <button (click)="authService.logout()">Déconnexion</button>
-    </div>
   }
 </div>

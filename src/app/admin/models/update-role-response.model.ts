@@ -1,6 +1,6 @@
 import User from "../../core/models/user.model";
 
-export default interface AuthResponse {
-  token: string;
+export interface UpdateRoleResponse {
+  message: string;
   user: User;
 }

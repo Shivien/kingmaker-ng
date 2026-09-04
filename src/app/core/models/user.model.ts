@@ -1,7 +1,9 @@
+import { RoleType } from "../types/role.type";
+
 export default interface User {
-  id: string;
+  _id: string;
   email: string;
   name: string;
   picture: string;
-  role: string;
+  role: RoleType;
 }

@@ -1,0 +1,41 @@
+<table mat-table [dataSource]="items()">
+
+  <ng-container matColumnDef="avatar">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let item">
+      <img
+        class="avatar"
+        referrerpolicy="no-referrer"
+        [src]="item.picture"
+        alt="Avatar"
+        />
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let item"> {{ item.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let item"> {{ item.email }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> Rôle </th>
+    <td mat-cell *matCellDef="let item"> {{ item.role }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let item">
+      <button mat-icon-button routerLink="/admin/user/{{ item._id }}/edit">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

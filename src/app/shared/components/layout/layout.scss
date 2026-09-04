@@ -1,0 +1,67 @@
+.layout {
+  min-height: 100dvh;
+}
+
+.app-toolbar {
+  background: var(--mat-sys-primary-container);
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+
+  .brand .title {
+    display: flex;
+    gap: .5em;
+    place-items: center;
+    color: currentColor;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: var(--size-2);
+
+    .user__picture {
+      display: flex;
+      place-items: center;
+
+      img {
+        --size: 28px;
+        aspect-ratio: 1 / 1;
+        height: var(--size);
+        width: var(--size);
+      }
+    }
+  }
+}
+
+.main-content {
+  box-sizing: border-box;
+  padding-block: var(--size-2);
+  padding-inline: var(--size-3);
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidenav-container {
+  flex-grow: 1;
+
+  mat-sidenav {
+    width: 250px;
+  }
+
+  .nav-title {
+    font-weight: bold;
+    padding-block: var(--size-2);
+    padding-inline: var(--size-3);
+  }
+}
