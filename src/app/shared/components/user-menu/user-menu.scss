@@ -1,0 +1,17 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+
+  .user__picture {
+    display: flex;
+    place-items: center;
+
+    img {
+      --size: 28px;
+      aspect-ratio: 1 / 1;
+      height: var(--size);
+      width: var(--size);
+    }
+  }
+}

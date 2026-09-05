@@ -1,0 +1,33 @@
+<button matButton [matMenuTriggerFor]="userMenu">
+  <div class="user">
+    <div class="user__picture">
+      <img
+        referrerpolicy="no-referrer"
+        [src]="authStore.userPicture()"
+        alt="Avatar"
+        />
+    </div>
+    @if (screen.isDesktop()) {
+      <div class="user__name">
+        {{ authStore.userName() }}
+      </div>
+    }
+  </div>
+</button>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>person</mat-icon>
+    <span>Profil (WIP)</span>
+  </button>
+
+  <button mat-menu-item routerLink="/admin/user/list">
+    <mat-icon>groups</mat-icon>
+    <span>Utilisateurs</span>
+  </button>
+
+  <button mat-menu-item (click)="authService.logout()">
+    <mat-icon>close</mat-icon>
+    <span>Déconnexion</span>
+  </button>
+</mat-menu>

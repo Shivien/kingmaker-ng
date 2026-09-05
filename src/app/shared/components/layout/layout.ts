@@ -3,26 +3,28 @@ import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
 import { AuthStore } from '../../../core/store/auth.store';
+import { NavigationComponent } from '../navigation/navigation';
 import { ScreenService } from '../../../core/services/screen.service';
+import { UserMenuComponent } from '../user-menu/user-menu';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb';
 
 @Component({
   imports: [
+    BreadcrumbComponent,
     GoogleSigninButtonModule,
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
+    NavigationComponent,
     RouterOutlet,
-    RouterLink,
-    RouterLinkActive
+    UserMenuComponent,
 ],
   selector: 'app-layout',
   styleUrl: './layout.scss',

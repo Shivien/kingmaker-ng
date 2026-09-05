@@ -1,28 +1,52 @@
-<div>
-  <a matButton routerLink="/ose/character/new">
-    <mat-icon>add</mat-icon>
-    <span>Créer un nouveau personnage</span>
-  </a>
+<div class="container">
+  <mat-card class="card stack">
+    <mat-card-header>
+      <mat-card-title>
+        Liste des personnages
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="content">
+      @if (loading()) {
+        <div class="spinner-container">
+          <mat-spinner diameter="40"></mat-spinner>
+        </div>
+      }
+      @else {
+        <div class="stack">
+
+          <div>
+            <a matButton routerLink="/ose/character/new">
+              <mat-icon>add</mat-icon>
+              <span>Créer un nouveau personnage</span>
+            </a>
+          </div>
+
+          <table mat-table [dataSource]="items()">
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Nom </th>
+              <td mat-cell *matCellDef="let item">
+                {{ item.name }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let item">
+                <button mat-icon-button routerLink="/ose/character/{{ item._id }}/edit">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+        </div>
+      }
+
+    </mat-card-content>
+  </mat-card>
 </div>
-
-<table mat-table [dataSource]="items()">
-
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Nom </th>
-    <td mat-cell *matCellDef="let item">
-      {{ item.name }}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let item">
-      <button mat-icon-button routerLink="/ose/character/{{ item._id }}/edit">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>

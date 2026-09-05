@@ -18,36 +18,7 @@
 
   <div class="user-section">
     @if (authStore.isAuthenticated()) {
-      <button matButton [matMenuTriggerFor]="userMenu">
-        <div class="user">
-          <div class="user__picture">
-            <img
-              referrerpolicy="no-referrer"
-              [src]="authStore.userPicture()"
-              alt="Avatar"
-              />
-          </div>
-          @if (screen.isDesktop()) {
-            <div class="user__name">
-              {{ authStore.userName() }}
-            </div>
-          }
-        </div>
-      </button>
-      <mat-menu #userMenu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>person</mat-icon>
-          <span>Profil (WIP)</span>
-        </button>
-        <button mat-menu-item routerLink="/admin/user/list">
-          <mat-icon>groups</mat-icon>
-          <span>Utilisateurs</span>
-        </button>
-        <button mat-menu-item (click)="authService.logout()">
-          <mat-icon>close</mat-icon>
-          <span>Déconnexion</span>
-        </button>
-      </mat-menu>
+      <app-user-menu></app-user-menu>
     }
     @else {
       <asl-google-signin-button type="standard" size="medium" theme="filled_black"></asl-google-signin-button>
@@ -58,24 +29,16 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #sidenav
+    class="sidenav"
     [mode]="screen.isMobile() ? 'over' : 'side'"
     [opened]="!screen.isMobile()"
   >
-    <mat-nav-list>
-      <div class="nav-title">Old School Essentials</div>
-      <a
-        mat-list-item
-        (click)="closeOnMobile(sidenav)"
-        routerLink="/ose/character/list"
-        routerLinkActive="active"
-      >
-        Personnages
-      </a>
-    </mat-nav-list>
+    <app-navigation (linkClicked)="closeOnMobile(sidenav)"></app-navigation>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <main class="main-content">
+    <main class="main-content stack">
+      <app-breadcrumb></app-breadcrumb>
       <router-outlet></router-outlet>
     </main>
   </mat-sidenav-content>
