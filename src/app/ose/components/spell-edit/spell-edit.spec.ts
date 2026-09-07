@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MemorisingSpells } from './memorising-spells';
+import { SpellEdit } from './spell-edit';
 
-describe('MemorisingSpells', () => {
-  let component: MemorisingSpells;
-  let fixture: ComponentFixture<MemorisingSpells>;
+describe('SpellEdit', () => {
+  let component: SpellEdit;
+  let fixture: ComponentFixture<SpellEdit>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MemorisingSpells],
+      imports: [SpellEdit],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MemorisingSpells);
+    fixture = TestBed.createComponent(SpellEdit);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

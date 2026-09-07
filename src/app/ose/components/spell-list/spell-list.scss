@@ -1,0 +1,19 @@
+.quantity {
+  background: var(--mat-sys-surface-container-high);
+  border-radius: 8px;
+  color: var(--mat-sys-primary);
+  font-size: var(--font-size-0);
+  font-weight: bold;
+  padding-block: var(--size-1);
+  padding-inline: var(--size-2);
+}
+
+.link {
+  cursor: pointer;
+}
+
+:host-context(.mobile) {
+  .list-item {
+    padding-inline: 0;
+  }
+}
