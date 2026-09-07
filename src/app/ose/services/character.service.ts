@@ -31,20 +31,29 @@ export default class CharacterService {
     return this.httpClient.patch<CharacterModel>(`${this.apiUrl}/${id}`, { name });
   }
 
-  public addKnownSpell(id: string, spell: SpellModel) {
-    return this.httpClient.post<CharacterModel>(`${this.apiUrl}/${id}/spells/known`, spell);
+  public createSpell(id: string, spell: SpellModel) {
+    return this.httpClient.post<CharacterModel>(`${this.apiUrl}/${id}/spells`, spell);
   }
 
-  public deleteKnownSpell(id: string, spellId: string) {
-    return this.httpClient.delete<IMessage>(`${this.apiUrl}/${id}/spells/known/${spellId}`);
+  public readSpell(id: string, spellId: string) {
+    return this.httpClient.get<SpellModel>(`${this.apiUrl}/${id}/spells/${spellId}`);
   }
 
-  public memoriseSpell(id: string, spell: SpellModel) {
-    return this.httpClient.post<CharacterModel>(`${this.apiUrl}/${id}/spells/memorise`, { spellId: spell._id });
+  public updateSpell(id: string, spell: SpellModel) {
+    return this.httpClient
+      .put<CharacterModel>(`${this.apiUrl}/${id}/spells/${spell._id}`, spell);
   }
 
-  public deleteMemorisedSpell(id: string, spellId: string) {
-    return this.httpClient.delete<IMessage>(`${this.apiUrl}/${id}/spells/memorised/${spellId}`);
+  public deleteSpell(id: string, spellId: string) {
+    return this.httpClient.delete<CharacterModel>(`${this.apiUrl}/${id}/spells/${spellId}`);
+  }
+
+  public prepareSpell(id: string, spellId: string) {
+    return this.httpClient.post<CharacterModel>(`${this.apiUrl}/${id}/spells/prepared`, { spellId });
+  }
+
+  public unpreparedSpell(id: string, spellId: string) {
+    return this.httpClient.delete<CharacterModel>(`${this.apiUrl}/${id}/spells/prepared/${spellId}`);
   }
 
 }

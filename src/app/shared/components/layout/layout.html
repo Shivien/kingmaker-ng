@@ -37,7 +37,11 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <main class="main-content stack">
+    <main
+      class="main-content stack"
+      [class.desktop]="screen.isDesktop()"
+      [class.mobile]="screen.isMobile()"
+    >
       <app-breadcrumb></app-breadcrumb>
       <router-outlet></router-outlet>
     </main>

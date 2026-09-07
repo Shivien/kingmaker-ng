@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "dev": "ng serve",
+    "dev:prod-api": "ng serve --configuration=local-prod",
     "start": "ng serve",
     "start:prod-api": "ng serve --configuration=local-prod",
     "build": "ng build",

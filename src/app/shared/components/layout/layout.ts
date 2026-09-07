@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
 import { AuthStore } from '../../../core/store/auth.store';
 import { NavigationComponent } from '../navigation/navigation';
@@ -23,6 +23,7 @@ import { BreadcrumbComponent } from '../breadcrumb/breadcrumb';
     MatSidenavModule,
     MatToolbarModule,
     NavigationComponent,
+    RouterLink,
     RouterOutlet,
     UserMenuComponent,
 ],

@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { Login } from './auth/components/login/login';
-import { Layout } from './shared/components/layout/layout';
 import { Home } from './home/components/home/home';
+import { Layout } from './shared/components/layout/layout';
+import { Login } from './auth/components/login/login';
 import { roleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
@@ -20,41 +20,73 @@ export const routes: Routes = [
         canActivateChild: [roleGuard(['administrator'])],
         children: [
           {
-            title: 'Liste des utilisateurs',
-            path: 'user/list',
+            path: 'user',
             data: { breadcrumb: 'Utilisateurs' },
-            loadComponent: () => import('./admin/components/user-list/user-list').then(m => m.UserList),
-          },
-          {
-            title: 'Édition d\'un utilisateur',
-            path: 'user/:id/edit',
-            data: { breadcrumb: 'Utilisateur' },
-            loadComponent: () => import('./admin/components/user-edit/user-edit').then(m => m.UserEdit),
+            children: [
+              {
+                title: 'Liste des utilisateurs',
+                path: 'list',
+                loadComponent: () => import('./admin/components/user-list/user-list').then(m => m.UserList),
+              },
+              {
+                title: 'Édition d\'un utilisateur',
+                path: ':id/edit',
+                data: { breadcrumb: 'Utilisateur' },
+                loadComponent: () => import('./admin/components/user-edit/user-edit').then(m => m.UserEdit),
+              },
+            ],
           },
         ],
       },
       {
         path: 'ose',
-        data: { breadcrumb: 'Old School Essentials' },
         canActivateChild: [roleGuard(['administrator'])],
         children: [
           {
-            title: 'Personnages OSE',
-            path: 'character/list',
+            path: 'character',
             data: { breadcrumb: 'Personnages' },
-            loadComponent: () => import('./ose/components/character-list/character-list').then(m => m.CharacterList),
-          },
-          {
-            title: 'Nouveau personnage OSE',
-            path: 'character/new',
-            data: { breadcrumb: 'Nouveau personnage' },
-            loadComponent: () => import('./ose/components/character-edit/character-edit').then(m => m.CharacterEdit),
-          },
-          {
-            title: 'Modifier personnage OSE',
-            path: 'character/:id/edit',
-            data: { breadcrumb: 'Modifier personnage' },
-            loadComponent: () => import('./ose/components/character-edit/character-edit').then(m => m.CharacterEdit),
+            children: [
+              {
+                title: 'OSE / Personnages',
+                path: 'list',
+                loadComponent: () => import('./ose/components/character-list/character-list').then(m => m.CharacterList),
+              },
+              {
+                title: 'OSE / Nouveau personnage',
+                path: 'new',
+                data: { breadcrumb: 'Nouveau personnage' },
+                loadComponent: () => import('./ose/components/character-edit/character-edit').then(m => m.CharacterEdit),
+              },
+              {
+                title: 'OSE / Modifier personnage',
+                path: ':id/edit',
+                data: { breadcrumb: 'Modifier personnage' },
+                loadComponent: () => import('./ose/components/character-edit/character-edit').then(m => m.CharacterEdit),
+              },
+              {
+                path: ':id/spell',
+                data: { breadcrumb: 'Sorts d\'un personnage' },
+                children: [
+                  {
+                    title: 'OSE / Sorts d\'un personnage',
+                    path: '',
+                    loadComponent: () => import('./ose/components/spell-list/spell-list').then(m => m.SpellList),
+                  },
+                  {
+                    title: 'OSE / Nouveau sort',
+                    path: 'new',
+                    data: { breadcrumb: 'Nouveau sort' },
+                    loadComponent: () => import('./ose/components/spell-edit/spell-edit').then(m => m.SpellEdit),
+                  },
+                  {
+                    title: 'OSE / Modifier sort',
+                    path: ':spellId',
+                    data: { breadcrumb: 'Modifier sort' },
+                    loadComponent: () => import('./ose/components/spell-edit/spell-edit').then(m => m.SpellEdit),
+                  },
+                ],
+              },
+            ],
           },
         ],
       },

@@ -1,0 +1,59 @@
+<form [formGroup]="form">
+  <div class="container">
+    <mat-card class="stack">
+      <mat-card-header>
+        <mat-card-title>
+          {{ isEditMode() ? 'Modifier sort' : 'Nouveau sort' }}
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="stack">
+        @if (loading()) {
+          <div class="spinner-container">
+            <mat-spinner diameter="40"></mat-spinner>
+          </div>
+        } @else {
+          <div class="section">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Nom du sort</mat-label>
+              <input matInput formControlName="name" />
+              @if (form.controls.name.hasError('required')) {
+                <mat-error>Le nom est obligatoire.</mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Niveau du sort</mat-label>
+              <input matInput type="number" formControlName="level" min="0" />
+              @if (form.controls.level.hasError('required')) {
+                <mat-error>Le niveau est obligatoire.</mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Nombre de préparation</mat-label>
+              <input matInput type="number" formControlName="prepared" min="0" />
+              @if (form.controls.prepared.hasError('required')) {
+                <mat-error>La valeur est obligatoire.</mat-error>
+              }
+            </mat-form-field>
+          </div>
+        }
+      </mat-card-content>
+
+      <mat-card-actions class="actions">
+        @if (!loading()) {
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            [disabled]="form.invalid || saving()"
+            (click)="onSubmit()"
+          >
+            {{ isEditMode() ? 'Enregister le sort' : 'Créer le sort' }}
+          </button>
+        }
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</form>

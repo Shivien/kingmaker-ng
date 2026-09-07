@@ -1,11 +1,45 @@
-<mat-nav-list>
-  <div class="nav-title">Old School Essentials</div>
-  <a
-    mat-list-item
-    (click)="onLinkClick()"
-    routerLink="/ose/character/list"
-    routerLinkActive="active"
-  >
-    Personnages
-  </a>
-</mat-nav-list>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <div class="nav-title">Zélénie</div>
+    </mat-expansion-panel-header>
+
+    <mat-nav-list>
+      <a
+        mat-list-item
+        (click)="onLinkClick()"
+      >
+        Royaume
+      </a>
+      <a
+        mat-list-item
+        (click)="onLinkClick()"
+      >
+        Dirigeants
+      </a>
+      <a
+        mat-list-item
+        (click)="onLinkClick()"
+      >
+        Cités
+      </a>
+    </mat-nav-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <div class="nav-title">Old School Essentials</div>
+    </mat-expansion-panel-header>
+
+    <mat-nav-list>
+      <a
+        mat-list-item
+        (click)="onLinkClick()"
+        routerLink="/ose/character/list"
+        routerLinkActive="active"
+      >
+        Personnages
+      </a>
+    </mat-nav-list>
+  </mat-expansion-panel>
+</mat-accordion>
