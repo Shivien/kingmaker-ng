@@ -48,7 +48,7 @@ export const routes: Routes = [
             children: [
               {
                 title: 'OSE / Personnages',
-                path: 'list',
+                path: '',
                 loadComponent: () => import('./ose/components/character-list/character-list').then(m => m.CharacterList),
               },
               {
