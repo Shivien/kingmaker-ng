@@ -7,7 +7,7 @@
     "dev:prod-api": "ng serve --configuration=local-prod",
     "start": "ng serve",
     "start:prod-api": "ng serve --configuration=local-prod",
-    "build": "ng build && cpx dist/kingmaker-ng/browser/index.html dist/kingmaker-ng/browser/404.html",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
