@@ -7,7 +7,7 @@ import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
-import { AuthStore } from '../../../core/store/auth.store';
+import { AuthStore } from '../../store/auth.store';
 import { NavigationComponent } from '../navigation/navigation';
 import { ScreenService } from '../../../core/services/screen.service';
 import { UserMenuComponent } from '../user-menu/user-menu';

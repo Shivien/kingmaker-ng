@@ -1,11 +1,30 @@
 html, body {
+  background-color: var(--mat-sys-background);
   min-height: 100dvh;
   margin: 0;
   padding: 0;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+.full-screen {
+  box-sizing: border-box;
+  min-height: 100dvh;
+  min-width: 100dvw;
+}
+
+.full-height {
+  height: 100%;
+}
+
 .full-width {
   width: 100%;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 h1, h2, h3 {

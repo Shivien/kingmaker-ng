@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
 import { ScreenService } from '../../../core/services/screen.service';
-import { AuthStore } from '../../../core/store/auth.store';
+import { AuthStore } from '../../store/auth.store';
 import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({

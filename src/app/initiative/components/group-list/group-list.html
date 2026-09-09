@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="main">
+    <mat-action-list>
+      <a mat-list-item [routerLink]="`/initiative/room/${roomNumber()}/group/new`">
+        <div class="full-width flex-center">
+          <mat-icon>add</mat-icon>
+          <span>Ajouter</span>
+        </div>
+      </a>
+
+      @for (group of sortedGroups(); track $index) {
+        <a mat-list-item [routerLink]="`/initiative/room/${roomNumber()}/group/${group.id}`">
+          <div class="full-width flex cross--center main--space-between">
+            <div>{{ group.label }}</div>
+            <div>{{ group.initiative }}</div>
+          </div>
+        </a>
+      }
+    </mat-action-list>
+  </div>
+
+  <div class="footer pb--2 flex-center">
+    <mat-button-toggle-group name="sortBy" [(ngModel)]="sortBy">
+      <mat-button-toggle value="label">
+        <mat-icon>format_line_spacing</mat-icon>
+        A-Z
+      </mat-button-toggle>
+      <mat-button-toggle value="initiative">
+        <mat-icon>format_line_spacing</mat-icon>
+        #
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+</div>

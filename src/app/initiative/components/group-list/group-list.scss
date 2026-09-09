@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  height: var(--main-content-height);
+}
+
+.container {
+  --footer-height: var(--header-height);
+  --main-height: calc(var(--main-content-height) - var(--footer-height));
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .main {
+    flex-grow: 1;
+    height: var(--main-height);
+  }
+
+  .footer {
+    height: var(--footer-height);
+  }
+}

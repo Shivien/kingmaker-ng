@@ -1,5 +1,5 @@
 import { Component, effect, inject, signal } from '@angular/core';
-import { AuthStore } from '../../../core/store/auth.store';
+import { AuthStore } from '../../../shared/store/auth.store';
 import { AdminService } from '../../services/admin.service';
 import User from '../../../core/models/user.model';
 import { MatButtonModule } from '@angular/material/button';

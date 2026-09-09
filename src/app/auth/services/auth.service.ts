@@ -3,7 +3,7 @@ import { environment } from "../../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
 import AuthResponse from "../models/auth-response.model";
-import { AuthStore } from "../../core/store/auth.store";
+import { AuthStore } from "../../shared/store/auth.store";
 
 const LOCALSTORAGEKEY_TOKEN = '/kingmaker/auth/token';
 const LOCALSTORAGEKEY_USER = '/kingmaker/auth/user';
