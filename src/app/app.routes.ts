@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { Home } from './home/components/home/home';
 import { Layout } from './shared/components/layout/layout';
-import { Login } from './auth/components/login/login';
 import { roleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
@@ -25,7 +24,7 @@ export const routes: Routes = [
             children: [
               {
                 title: 'Liste des utilisateurs',
-                path: 'list',
+                path: '',
                 loadComponent: () => import('./admin/components/user-list/user-list').then(m => m.UserList),
               },
               {
@@ -90,10 +89,34 @@ export const routes: Routes = [
           },
         ],
       },
-      {
-        path: 'login',
-        component: Login,
-      },
     ]
-  }
+  },
+  {
+    path: 'initiative',
+    loadComponent: () => import('./initiative/components/layout/layout').then(m => m.Layout),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./initiative/components/home/home').then(m => m.Home),
+      },
+      {
+        path: 'room/:roomNumber',
+        loadComponent: () => import('./initiative/components/room/room').then(m => m.Room),
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./initiative/components/group-list/group-list').then(m => m.GroupList),
+          },
+          {
+            path: 'group/new',
+            loadComponent: () => import('./initiative/components/group-edit/group-edit').then(m => m.GroupEdit),
+          },
+          {
+            path: 'group/:groupId',
+            loadComponent: () => import('./initiative/components/group-edit/group-edit').then(m => m.GroupEdit),
+          },
+        ],
+      },
+    ],
+  },
 ];

@@ -1,0 +1,12 @@
+<div class="stack main--center full-height pi--3">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Numéro de salle</mat-label>
+    <input matInput type="number" [formControl]="roomNumberControl" placeholder="###" min="0" max="999" />
+  </mat-form-field>
+
+  <a matFab extended class="uppercase" type="button" [routerLink]="['/initiative/room', roomNumberControl.getRawValue()]">
+    Entrer dans la salle
+  </a>
+
+</div>

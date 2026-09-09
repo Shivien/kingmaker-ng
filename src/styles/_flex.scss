@@ -5,13 +5,23 @@
     gap: var(--size-3);
   }
 
-  &.cross--center {
-    align-items: center;
-  }
+}
 
-  &.main--space-between {
-    justify-content: space-between;
-  }
+.cross--center {
+  align-items: center;
+}
+
+.main--center {
+  justify-content: center;
+}
+.main--space-between {
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .grow {
