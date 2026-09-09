@@ -59,6 +59,9 @@ export class GroupEdit implements OnInit {
   }
 
   protected onSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
     if (this.isEditMode()) {
       this.updateGroup();
     } else {
@@ -80,6 +83,7 @@ export class GroupEdit implements OnInit {
       initiative,
     };
     this.initiativeService.updateGroup(group);
+    this.navigateBack();
   }
 
   private navigateBack() {
