@@ -19,7 +19,11 @@
   </div>
 
   <div class="footer">
-    <button matIconButton (click)="onSubmit()">
+    <button
+      matIconButton
+      [disabled]="form.invalid"
+      (click)="onSubmit()"
+    >
       <mat-icon>check</mat-icon>
     </button>
 
