@@ -93,7 +93,6 @@ export const routes: Routes = [
   },
   {
     path: 'initiative',
-    loadComponent: () => import('./initiative/components/layout/layout').then(m => m.Layout),
     children: [
       {
         path: '',

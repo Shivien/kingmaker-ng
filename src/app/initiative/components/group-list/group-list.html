@@ -1,19 +1,33 @@
 <div class="container">
 
   <div class="main">
-    <mat-action-list>
-      <a mat-list-item [routerLink]="`/initiative/room/${roomNumber()}/group/new`">
-        <div class="full-width flex-center">
-          <mat-icon>add</mat-icon>
-          <span>Ajouter</span>
-        </div>
-      </a>
+    <div class="button-bar">
+      <button
+        matButton
+        type="button"
+        [disabled]="sending() || !room()"
+        [routerLink]="`/initiative/room/${roomNumber()}/group/new`"
+        >
+        <mat-icon>add</mat-icon>
+        <span>Ajouter</span>
+      </button>
+      <button
+        matButton
+        type="button"
+        [disabled]="sending() || !room()"
+        (click)="onEmpty()"
+        >
+        <mat-icon>delete</mat-icon>
+        <span>Vider</span>
+      </button>
+    </div>
 
+    <mat-action-list>
       @for (group of sortedGroups(); track $index) {
         <a mat-list-item [routerLink]="`/initiative/room/${roomNumber()}/group/${group.id}`">
-          <div class="full-width flex cross--center main--space-between">
-            <div>{{ group.label }}</div>
-            <div>{{ group.initiative }}</div>
+          <div class="group" [class.selected]="group.id === room()?.currentGroupId">
+            <div class="label">{{ group.label }}</div>
+            <div class="initiative">{{ group.initiative }}</div>
           </div>
         </a>
       }

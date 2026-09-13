@@ -25,7 +25,9 @@ export class GroupList {
 
   public readonly roomNumber = input.required<number>();
 
-  protected readonly sortBy = signal<'label' | 'initiative'>('label');
+  protected readonly room = this.initiativeService.room;
+  protected readonly sortBy = signal<'label' | 'initiative'>('initiative');
+  protected readonly sending = signal<boolean>(false);
 
   protected readonly sortedGroups = computed(() => {
     const groups = this.initiativeService.room()?.groups ?? [];
@@ -34,10 +36,30 @@ export class GroupList {
       switch (sortBy) {
         case 'label':
           return a.label.localeCompare(b.label)
-        default: // Initiative descendante.
+        case 'initiative': // Initiative descendante.
           return b.initiative - a.initiative;
       }
     });
   });
+
+  protected onEmpty() {
+    if (this.sending()) {
+      return;
+    }
+    this.sending.set(true);
+    this.initiativeService.callRoomEmpty(this.room()!.id).subscribe({
+      next: (value) => {
+        setTimeout(() => this.sending.set(false), 300);
+        if (!value.success || !value.room) {
+          return;
+        }
+        this.initiativeService.setLocalRoom(value.room);
+      },
+      error: (error) => {
+        console.error(error);
+        setTimeout(() => this.sending.set(false), 300);
+      },
+    });
+  }
 
 }

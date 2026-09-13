@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { TitleStore } from '../../../shared/store/title.store';
 
 @Component({
   imports: [
@@ -21,7 +21,7 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './home.html',
 })
 export class Home implements OnInit {
-  private readonly titleService = inject(Title);
+  private readonly titleStore = inject(TitleStore);
 
   protected readonly roomNumberControl = new FormControl(
     this.getRoomNumber(),
@@ -31,7 +31,7 @@ export class Home implements OnInit {
     });
 
   ngOnInit(): void {
-    this.titleService.setTitle('Choix de la salle');
+    this.titleStore.setTitle('Choix de la salle');
   }
 
   private getRoomNumber() {
