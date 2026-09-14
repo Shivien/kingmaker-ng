@@ -1,0 +1,35 @@
+.container {
+  background-color: var(--mat-sys-surface-container-low);
+  border-radius: var(--mat-sys-corner-medium);
+  margin-block-end: var(--size-3);
+  margin-inline: auto;
+  padding-block: var(--size-2);
+  padding-inline: var(--size-3);
+  max-width: 1024px;
+}
+
+.ose-table {
+  background-color: var(--mat-sys-surface-container-lowest);
+  border-collapse: collapse;
+  margin-inline: auto;
+  min-width: 50%;
+
+  thead {
+    border-bottom: var(--border-size-1) solid var(--mat-sys-on-background);
+  }
+
+  tbody > :nth-child(odd) {
+    background-color: var(--mat-sys-surface-container-low);
+  }
+
+  th, td {
+    padding-block: var(--size-2);
+    padding-inline: var(--size-3);
+  }
+}
+
+#table-training {
+  tr > * {
+    text-align: center;
+  }
+}

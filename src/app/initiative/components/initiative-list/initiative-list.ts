@@ -38,6 +38,9 @@ export class InitiativeListComponent {
     this.sending.set(true);
     this.initiativeService.callGroupMoveToPrevious(this.room()!.id).subscribe({
       next: (value) => {
+        if (!value.success || !value.room) {
+          return;
+        }
         this.initiativeService.setLocalRoom(value.room);
         this.setSendingFalse();
       },
@@ -56,6 +59,9 @@ export class InitiativeListComponent {
 
     this.initiativeService.callGroupMoveToNext(this.room()!.id).subscribe({
       next: (value) => {
+        if (!value.success || !value.room) {
+          return;
+        }
         this.initiativeService.setLocalRoom(value.room);
         this.setSendingFalse();
       },

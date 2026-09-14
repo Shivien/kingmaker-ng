@@ -1,29 +1,30 @@
 <mat-accordion>
 
   @if (authStore.isAuthenticated()) {
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <div class="nav-title">Zélénie</div>
-      </mat-expansion-panel-header>
+    <details class="expandable" name="nav-expandable">
+      <summary class="expandable__toggle nav-title">
+        Zélénie
+      </summary>
 
-      <mat-nav-list>
+      <mat-action-list>
         <a mat-list-item (click)="onLinkClick()">Royaume</a>
         <a mat-list-item (click)="onLinkClick()">Dirigeants</a>
         <a mat-list-item (click)="onLinkClick()">Cités</a>
-      </mat-nav-list>
-    </mat-expansion-panel>
+      </mat-action-list>
+    </details>
   }
 
   @if (authStore.isAdmin()) {
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <div class="nav-title">Old School Essentials</div>
-      </mat-expansion-panel-header>
+    <details class="expandable" name="nav-expandable">
+      <summary class="expandable__toggle nav-title">
+        Old School Essentials
+      </summary>
 
-      <mat-nav-list>
+      <mat-action-list>
         <a mat-list-item (click)="onLinkClick()" routerLink="/ose/character" routerLinkActive="active">Personnages</a>
-      </mat-nav-list>
-    </mat-expansion-panel>
+        <a mat-list-item (click)="onLinkClick()" routerLink="/ose/downtime" routerLinkActive="active">Temps morts</a>
+      </mat-action-list>
+    </details>
   }
 
 </mat-accordion>

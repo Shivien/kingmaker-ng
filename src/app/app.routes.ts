@@ -87,6 +87,11 @@ export const routes: Routes = [
               },
             ],
           },
+          {
+            path: 'downtime',
+            data: { breadcrumb: 'Temps morts' },
+            loadComponent: () => import('./ose/components/downtime/downtime').then(m => m.Downtime),
+          },
         ],
       },
     ]
