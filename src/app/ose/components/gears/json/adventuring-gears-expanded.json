@@ -1,0 +1,9 @@
+[
+  { "label": "Baril", "cost": 1 },
+  { "label": "Sac de couchage", "cost": 2 },
+  { "label": "Clochette", "cost": 1 },
+  { "label": "Bourse", "cost": 1 },
+  { "label": "Palan", "cost": 5 },
+  { "label": "Boite (fer, grande)", "cost": 30 },
+  { "label": "Boite (fer, petite)", "cost": 10 }
+]

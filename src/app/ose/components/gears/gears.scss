@@ -1,0 +1,19 @@
+
+.btn {
+  color: var(--gray-9);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 300ms;
+
+  &:hover {
+    color: var(--teal-6);
+  }
+  &:active {
+    color: var(--teal-9);
+  }
+  &:disabled {
+    color: var(--gray-10);
+  }
+}

@@ -1,0 +1,23 @@
+[
+  { "label": "Arbalète", "cost": 30, "damage": "1d6", "qualities": "Distance (24/48/72), lente, rechargement, deux mains." },
+  { "label": "Arc court", "cost": 25, "damage": "1d6", "qualities": "Distance (15/30/45), deux mains." },
+  { "label": "Arc long", "cost": 40, "damage": "1d6", "qualities": "Distance (21/42/64), deux mains." },
+  { "label": "Arme d'hast", "cost": 7, "damage": "1d10", "qualities": "Mêlée, lente, réception de charge, deux mains." },
+  { "label": "Bâton", "cost": 2, "damage": "1d4", "qualities": "Mêlée, contondante, lente, deux mains." },
+  { "label": "Dague", "cost": 3, "damage": "1d4", "qualities": "Mêlée, distance (3/6/9)." },
+  { "label": "Dague, argent", "cost": 30, "damage": "1d4", "qualities": "Mêlée, distance (3/6/9)." },
+  { "label": "Eau bénite (fiole)", "cost": 25, "damage": "1d8", "qualities": "Distance (3/9/15), projections." },
+  { "label": "Épée", "cost": 10 },
+  { "label": "Épée bâtarde", "cost": 15, "damage": "1d6+1", "qualities": "Mêlée, versatile (1d8+1)." },
+  { "label": "Épée à deux mains", "cost": 15, "damage": "1d10", "qualities": "Mêlée, lente, deux mains." },
+  { "label": "Épée courte", "cost": 7 },
+  { "label": "Épieu", "cost": 3 },
+  { "label": "Fronde", "cost": 2 },
+  { "label": "Gourdin", "cost": 3 },
+  { "label": "Hache de bataille", "cost": 7 },
+  { "label": "Hache ordinaire", "cost": 4 },
+  { "label": "Javelot", "cost": 1 },
+  { "label": "Lance", "cost": 5 },
+  { "label": "Marteau de guerre", "cost": 5 },
+  { "label": "Masse", "cost": 5 }
+]

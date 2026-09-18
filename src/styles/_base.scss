@@ -9,6 +9,10 @@ html, body {
   font-weight: bold;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .full-screen {
   box-sizing: border-box;
   min-height: 100dvh;
@@ -21,6 +25,14 @@ html, body {
 
 .full-width {
   width: 100%;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.text--center {
+  text-align: center;
 }
 
 .uppercase {

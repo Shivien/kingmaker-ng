@@ -1,48 +1,71 @@
 <div class="container">
 
   <ul>
-    <li><a href="#training">Entraînement de montée de niveau</a></li>
+    <li>
+      <a href="#training">Entraînement de montée de niveau</a>
+      <ul>
+        <li><a href="#learing-spells">Apprentissage de sorts</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-xp">Acquérir de l'expérience</a>
+      <ul>
+        <li><a href="#charity">Charité</a></li>
+      </ul>
+    </li>
   </ul>
 
 
   <h2 id="training">Entraînement de montée de niveau</h2>
 
-  <p>
+  <p class="justify">
     La montée de niveau nécessite un temps d'entraînement et un coût en pièce d'or.
-    Cela réprésente le temps passé à s'entraîner, étudier, faire des recherches, méditer, ...
+    Cela représente le temps passé à s'entraîner, étudier, faire des recherches, méditer, ...
     Il y a le coût de la vie, des professeurs, de l'accès aux matériaux, des donations, ...
+  </p>
+
+  <p class="justify">
+    Le coût d'une semaine d'entraînement est de 100 pièce d'or multiplié par le niveau à atteindre.
+    Chaque semaine le joueur lance 1d6 et additionne les valeurs.
+    Si le personnage a un malus d'expérience de 20% il retire 2 à cette valeur la première semaine.
+    Si le personnage a un malus d'expérience de 10% il retire 1 à cette valeur la première semaine.
+    Si le personnage a un bonus d'expérience de 5% il ajoute 1 à cette valeur chaque semaine.
+    Si le personnage a un bonus d'expérience de 10% il ajoute 2 à cette valeur chaque semaine.
+    Une fois que le total a dépassé une valeur déterminé par le nouveau niveau alors l'entraînement est terminé.
+    L'entraînement ne peut pas durer moins d'une semaine.
   </p>
 
   <table id="table-training" class="ose-table">
     <thead>
       <tr>
         <th>Nouveau niveau</th>
-        <th>Nombre de semaine</th>
         <th>Coût par semaine</th>
-        <th>Coût total</th>
+        <th>Valeur à atteindre</th>
       </tr>
     </thead>
     <tbody>
-      <tr><th> 1</th><td> 1</td><td>  100</td><td>   100</td></tr>
-      <tr><th> 2</th><td> 2</td><td>  200</td><td>   400</td></tr>
-      <tr><th> 3</th><td> 3</td><td>  300</td><td>   900</td></tr>
-      <tr><th> 4</th><td> 4</td><td>  400</td><td> 1 600</td></tr>
-      <tr><th> 5</th><td> 5</td><td>  500</td><td> 2 500</td></tr>
-      <tr><th> 6</th><td> 6</td><td>  600</td><td> 3 600</td></tr>
-      <tr><th> 7</th><td> 7</td><td>  700</td><td> 4 900</td></tr>
-      <tr><th> 8</th><td> 8</td><td>  800</td><td> 6 400</td></tr>
-      <tr><th> 9</th><td> 9</td><td>  900</td><td> 8 100</td></tr>
-      <tr><th>10</th><td>10</td><td>1 000</td><td>10 000</td></tr>
-      <tr><th>11</th><td>11</td><td>1 100</td><td>12 100</td></tr>
-      <tr><th>12</th><td>12</td><td>1 200</td><td>14 400</td></tr>
-      <tr><th>13</th><td>13</td><td>1 300</td><td>16 900</td></tr>
-      <tr><th>14</th><td>14</td><td>1 400</td><td>20 400</td></tr>
+      <tr><th> 1</th><td>  100</td><td> 3</td></tr>
+      <tr><th> 2</th><td>  200</td><td> 6</td></tr>
+      <tr><th> 3</th><td>  300</td><td> 9</td></tr>
+      <tr><th> 4</th><td>  400</td><td>12</td></tr>
+      <tr><th> 5</th><td>  500</td><td>15</td></tr>
+      <tr><th> 6</th><td>  600</td><td>18</td></tr>
+      <tr><th> 7</th><td>  700</td><td>21</td></tr>
+      <tr><th> 8</th><td>  800</td><td>24</td></tr>
+      <tr><th> 9</th><td>  900</td><td>27</td></tr>
+      <tr><th>10</th><td>1 000</td><td>30</td></tr>
+      <tr><th>11</th><td>1 100</td><td>33</td></tr>
+      <tr><th>12</th><td>1 200</td><td>36</td></tr>
+      <tr><th>13</th><td>1 300</td><td>39</td></tr>
+      <tr><th>14</th><td>1 400</td><td>42</td></tr>
     </tbody>
   </table>
 
-  <h2>Acquérir de l'expérience</h2>
+  <h3 id="learning-spells">Apprentissage de sort</h3>
 
-  <p>
+  <h2 id="getting-xp">Acquérir de l'expérience</h2>
+
+  <p class="justify">
     Il existe plusieurs occupations qui permettent d'obtenir de l'expérience avec un coût.
     Le coût monétaire est de 1d8 &times; 100 pièces d'or dépensées en une semaine.
     Le personnage gagne autant d'expérience que d'or dépensé.
@@ -50,7 +73,7 @@
     Si le jet est échoué quelque chose d'intéressant s'est produit, consulter la table correspondante à l'activité.
   </p>
 
-  <h3>Charité</h3>
+  <h3 id="charity">Charité</h3>
 
   <p>Jet de la caractéristique Sagesse.</p>
 
@@ -78,26 +101,26 @@
     </li>
   </ol>
 
-  <h3>Études</h3>
+  <h3 id="studies">Études</h3>
 
   <p>Jet de la caractéristique Intelligence.</p>
 
-  <h3>Festoyer</h3>
+  <h3 id="carousing">Festoyer</h3>
 
   <p>Jet de la caractéristique Charisme.</p>
 
-  <h3>Luxure</h3>
+  <h3 id="gourmandising">Luxure</h3>
 
   <p>Jet de la caractéristique Constitution.</p>
 
-  <h2>Récolte d'information</h2>
-  <h3>Recherches</h3>
-  <h3>Renseignements</h3>
+  <h2 id="information-gathering">Récolte d'information</h2>
+  <h3 id="research">Recherches</h3>
+  <h3 id="network">Renseignements</h3>
 
-  <h2>Fabrication</h2>
-  <h3>Création d'objet magique</h3>
-  <h3>Écriture de parchemins</h3>
-  <h3>Préparation de potions</h3>
-  <h3>Recherches de sorts</h3>
+  <h2 id="crafting">Fabrication</h2>
+  <h3 id="crafting-magic-item">Création d'objet magique</h3>
+  <h3 id="writing-scrolls">Écriture de parchemins</h3>
+  <h3 id="brewing-potions">Préparation de potions</h3>
+  <h3 id="spell-research">Recherches de sorts</h3>
 
 </div>

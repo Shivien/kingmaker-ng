@@ -1,0 +1,11 @@
+[
+  { "label": "Armure matelassée", "cost": 5, "ac": "8 [11]", "weight": 100 },
+  { "label": "Armure de fourrures", "cost": 10, "ac": "7 [12]", "weight": 250 },
+  { "label": "Armure de cuir", "cost": 20, "ac": "7 [12]", "weight": 200 },
+  { "label": "Cuir clouté", "cost": 25, "ac": "6 [13]", "weight": 300 },
+  { "label": "Cotte de mailles", "cost": 40, "ac": "5 [14]", "weight": 400 },
+  { "label": "Armure lamellaire", "cost": 50, "ac": "4 [15]", "weight": 450 },
+  { "label": "Armure de plates", "cost": 60, "ac": "3 [16]", "weight": 500 },
+  { "label": "Armure de plates complète", "cost": 1000, "ac": "2 [17]", "weight": 700 },
+  { "label": "Bouclier", "cost": 10, "ac": "bonus de +1", "weight": 100 }
+]
