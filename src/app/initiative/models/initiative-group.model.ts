@@ -1,4 +1,4 @@
-export default interface InitiativeGroupModel {
+export interface InitiativeGroupModel {
   id: string;
   label: string;
   initiative: number;

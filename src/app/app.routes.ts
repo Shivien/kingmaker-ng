@@ -87,13 +87,22 @@ export const routes: Routes = [
               },
             ],
           },
+          {
+            path: 'downtime',
+            data: { breadcrumb: 'Temps morts' },
+            loadComponent: () => import('./ose/components/downtime/downtime').then(m => m.Downtime),
+          },
+          {
+            path: 'gears',
+            data: { breadcrumb: 'Équipements' },
+            loadComponent: () => import('./ose/components/gears/gears').then(m => m.Gears),
+          },
         ],
       },
     ]
   },
   {
     path: 'initiative',
-    loadComponent: () => import('./initiative/components/layout/layout').then(m => m.Layout),
     children: [
       {
         path: '',

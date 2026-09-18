@@ -1,0 +1,23 @@
+.ose-table {
+  background-color: var(--mat-sys-surface-container-lowest);
+  border-collapse: collapse;
+  margin-inline: auto;
+  min-width: 50%;
+
+  thead {
+    border-bottom: var(--border-size-1) solid var(--mat-sys-on-background);
+  }
+
+  tbody > :nth-child(odd) {
+    background-color: var(--mat-sys-surface-container-low);
+  }
+
+  th, td {
+    padding-block: var(--size-2);
+    padding-inline: var(--size-3);
+  }
+
+  th.center, td.center {
+    text-align: center;
+  }
+}

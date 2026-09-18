@@ -1,4 +1,30 @@
+.expandable {
+  .expandable__toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: var(--expendable-toggle-height, 48px);
+
+    &:hover {
+      background-color: color(from var(--mat-sys-on-surface) srgb r g b / .08);
+    }
+    &::after {
+      --_fa-family: var(--fa-family, var(--fa-style-family, "Font Awesome 7 Free"));
+      content: "\f106" / "";
+      font-family: var(--_fa-family);
+      font-weight: 900;
+    }
+  }
+
+  &[open] .expandable__toggle::after {
+    content: "\f107" / "";
+  }
+}
+
 .nav-title {
   font-weight: bold;
   padding-block: var(--size-2);
+  padding-inline: var(--size-3);
 }

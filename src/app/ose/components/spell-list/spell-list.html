@@ -27,7 +27,9 @@
                   <span>{{ item.name }}</span>
                 </div>
                 <div>
-                  <span class="quantity">&times;{{ item.prepared }}</span>
+                  @if (item.prepared > 0) {
+                    <span class="quantity">&times;{{ item.prepared }}</span>
+                  }
                 </div>
               </div>
             </mat-list-item>

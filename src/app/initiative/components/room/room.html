@@ -1,1 +1,35 @@
-<router-outlet></router-outlet>
+<div class="layout">
+  <div class="header">
+    <div class="corner online" [class.online-off]="!connected()">
+      @if (connected()) {
+        <mat-icon>wifi</mat-icon>
+      } @else {
+        <mat-icon>wifi_off</mat-icon>
+      }
+    </div>
+
+    <div class="title uppercase">
+      {{ pageTitle() }}
+    </div>
+
+    <div class="corner room-state">
+      @if (roomState() === 'setting') {
+        <button matIconButton type="button" (click)="onToggleState('running')">
+          <mat-icon>lock_open_right</mat-icon>
+        </button>
+      } @else {
+        <button matIconButton type="button" (click)="onToggleState('setting')">
+          <mat-icon>lock</mat-icon>
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="main-content">
+    @if (roomState() === 'setting') {
+      <router-outlet></router-outlet>
+    } @else {
+      <app-initiative-list></app-initiative-list>
+    }
+  </div>
+</div>

@@ -1,0 +1,6 @@
+[
+  { "label": "Carreaux d'arbalète (carquois de 30)", "cost": 10 },
+  { "label": "Flèches (carquois de 20)", "cost": 5 },
+  { "label": "Flèche à pointe d'argent (1)", "cost": 5 },
+  { "label": "Pierres de fronde", "cost": 0 }
+]

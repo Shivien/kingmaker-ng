@@ -21,15 +21,6 @@
   }
 }
 
-.button-bar {
-  display: flex;
-  align-items: stretch;
-
-  & > * {
-    flex-grow: 1;
-  }
-}
-
 .group {
   box-sizing: border-box;
   display: flex;
@@ -60,5 +51,14 @@
   &.selected {
     background-color: var(--mat-sys-primary-container);
     border-color: var(--mat-sys-primary);
+  }
+}
+
+.button-bar {
+  display: flex;
+  align-items: stretch;
+
+  & > * {
+    flex-grow: 1;
   }
 }

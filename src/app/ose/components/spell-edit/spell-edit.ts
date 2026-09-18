@@ -44,7 +44,7 @@ export class SpellEdit {
   protected readonly form = this.fb.group({
     name: ['', [Validators.required]],
     level: [1, [Validators.required, Validators.min(0)]],
-    prepared: [1, [Validators.required, Validators.min(0)]],
+    prepared: [0, [Validators.required, Validators.min(0)]],
   });
 
   constructor() {
@@ -72,7 +72,11 @@ export class SpellEdit {
       error: (error) => {
         console.error(error);
         this.loading.set(false);
-        this.snackBar.open('Erreur lors du chargement du sort.', 'Fermer', { duration: 3000 });
+        this.snackBar.open(
+          'Erreur lors du chargement du sort.',
+          'Fermer',
+          { duration: 3000, panelClass: 'error' }
+        );
       },
     });
   }
@@ -98,13 +102,21 @@ export class SpellEdit {
     this.characterService.createSpell(id, spell).subscribe({
       next: (_) => {
         this.saving.set(false);
-        this.snackBar.open('Sort créé avec succès.', 'Fermer', { duration: 3000 });
+        this.snackBar.open(
+          'Sort créé avec succès.',
+          'Fermer',
+          { duration: 3000, panelClass: 'success' }
+        );
         this.router.navigate(['/ose', 'character', id, 'spell']);
       },
       error: (error) => {
         console.error(error);
         this.saving.set(false);
-        this.snackBar.open('Une erreur est survenue lors de la création du sort.', 'Fermer', { duration: 3000 });
+        this.snackBar.open(
+          'Une erreur est survenue lors de la création du sort.',
+          'Fermer',
+          { duration: 3000, panelClass: 'error' }
+        );
       },
     });
   }
@@ -113,13 +125,21 @@ export class SpellEdit {
     this.characterService.updateSpell(id, spell).subscribe({
       next: (_) => {
         this.saving.set(false);
-        this.snackBar.open('Sort mis à jour.', 'Fermer', { duration: 3000 });
+        this.snackBar.open(
+          'Sort mis à jour.',
+          'Fermer',
+          { duration: 3000, panelClass: 'success' }
+        );
         this.router.navigate(['/ose', 'character', id, 'spell']);
       },
       error: (error) => {
         console.error(error);
         this.saving.set(false);
-        this.snackBar.open('Une erreur est survenue lors de la mise à jour du sort.', 'Fermer', { duration: 3000 });
+        this.snackBar.open(
+          'Une erreur est survenue lors de la mise à jour du sort.',
+          'Fermer',
+          { duration: 3000, panelClass: 'error' }
+        );
       },
     });
   }

@@ -4,7 +4,7 @@ import { computed, inject } from "@angular/core";
 import { Router } from "@angular/router";
 
 export interface AuthState {
-  user: User |null;
+  user: User | null;
   token: string | null;
   isLoading: boolean;
   error: string | null;

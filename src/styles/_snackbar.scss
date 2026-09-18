@@ -1,0 +1,12 @@
+.mdc-snackbar {
+  &.error {
+    --mat-snack-bar-container-color: var(--mat-sys-error-container);
+    --mat-snack-bar-supporting-text-color: var(--mat-sys-on-error-container);
+    --mat-snack-bar-button-color: var(--mat-sys-error);
+  }
+  &.success {
+    --mat-snack-bar-container-color: var(--green-9);
+    --mat-snack-bar-supporting-text-color: var(--mat-sys-on-surface);
+    --mat-snack-bar-button-color: var(--mat-sys-on-surface-variant);
+  }
+}

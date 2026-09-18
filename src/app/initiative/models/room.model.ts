@@ -1,10 +1,10 @@
-import InitiativeGroupModel from "./initiative-group.model";
+import { InitiativeGroupModel } from "./initiative-group.model";
 
-type StateType = 'setting' | 'running';
+export type StateType = 'setting' | 'running';
 
-export default interface RoomModel {
+export interface RoomModel {
   id: string;
   state: StateType;
   groups: InitiativeGroupModel[];
-  currentIndex: number;
+  currentGroupId?: string;
 }

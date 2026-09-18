@@ -1,5 +1,5 @@
 import { Component, computed, inject, input, OnInit } from '@angular/core';
-import InitiativeGroupModel from '../../models/initiative-group.model';
+import { InitiativeGroupModel } from '../../models/initiative-group.model';
 import { InitiativeService } from '../../services/initiative.service';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -54,7 +54,7 @@ export class GroupEdit implements OnInit {
   }
 
   protected onDelete() {
-    this.initiativeService.deleteGroup(this.groupId()!);
+    this.initiativeService.callGroupRemove(this.groupId()!);
     this.navigateBack();
   }
 
@@ -71,7 +71,7 @@ export class GroupEdit implements OnInit {
 
   private addGroup() {
     const { label, initiative } = this.form.getRawValue();
-    this.initiativeService.addGroup(label, initiative);
+    this.initiativeService.callGroupAdd(label, initiative);
     this.navigateBack();
   }
 
@@ -82,7 +82,7 @@ export class GroupEdit implements OnInit {
       label,
       initiative,
     };
-    this.initiativeService.updateGroup(group);
+    this.initiativeService.callGroupUpdate(group);
     this.navigateBack();
   }
 
