@@ -85,11 +85,11 @@
           <td class="center">{{ gear.cost }}</td>
           <td>
             <div class="flex">
-              <button class="grow btn" (click)="updateAmount(adventuringGears, $index, -1)" [disabled]="gear.amount === 0">
+              <button class="grow btn" (click)="updateAmount(ammunitions, $index, -1)" [disabled]="gear.amount === 0">
                 <i class="fa-solid fa-square-minus"></i>
               </button>
               <div class="grow text--center">{{ gear.amount }}</div>
-              <button class="grow btn" (click)="updateAmount(adventuringGears, $index, 1)">
+              <button class="grow btn" (click)="updateAmount(ammunitions, $index, 1)">
                 <i class="fa-solid fa-square-plus"></i>
               </button>
             </div>
@@ -118,11 +118,11 @@
           <td class="center">{{ gear.cost }}</td>
           <td>
             <div class="flex">
-              <button class="grow btn" (click)="updateAmount(weapons, $index, -1)" [disabled]="gear.amount === 0">
+              <button class="grow btn" (click)="updateAmount(armors, $index, -1)" [disabled]="gear.amount === 0">
                 <i class="fa-solid fa-square-minus"></i>
               </button>
               <div class="grow text--center">{{ gear.amount }}</div>
-              <button class="grow btn" (click)="updateAmount(weapons, $index, 1)">
+              <button class="grow btn" (click)="updateAmount(armors, $index, 1)">
                 <i class="fa-solid fa-square-plus"></i>
               </button>
             </div>
