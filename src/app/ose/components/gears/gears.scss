@@ -1,19 +1,50 @@
+.total-cost {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 
-.btn {
-  color: var(--gray-9);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+  background-color: var(--mat-sys-surface-container-low);
+  padding-block: var(--size-2);
+  padding-inline: var(--size-3);
+}
+
+.amount {
+  color: var(--teal-6);
+  font-weight: bold;
   text-align: center;
-  transition: all 300ms;
 
-  &:hover {
-    color: var(--teal-6);
+  &.zero {
+    color: transparent;
   }
-  &:active {
-    color: var(--teal-9);
+}
+
+.action {
+
+  .action__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--size-2);
   }
-  &:disabled {
-    color: var(--gray-10);
+
+  .action__button {
+    background-color: var(--btn-bg, var(--teal-6));
+    color: var(--btn-fg, var(--gray-12));
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: all 300ms;
+
+    &:hover {
+      --btn-bg: var(--teal-3);
+    }
+    &:active {
+      --btn-bg: var(--teal-9);
+    }
+    &[disabled] {
+      --btn-bg: var(--gray-9);
+    }
   }
+
 }

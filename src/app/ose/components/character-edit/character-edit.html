@@ -1,41 +1,32 @@
-<div class="container">
-  <mat-card class="character-card">
-    <mat-card-header>
-      <mat-card-title>
-        {{ isEditMode() ? 'Modifier le personnage' : 'Nouveau personnage' }}
-      </mat-card-title>
-    </mat-card-header>
+<div class="container stack">
+  <h2 class="title--2">{{ isEditMode() ? 'Modifier le personnage' : 'Nouveau personnage' }}</h2>
 
-    <mat-card-content class="content">
-      @if (loading()) {
-        <div class="spinner-container">
-          <mat-spinner diameter="40"></mat-spinner>
-        </div>
-      } @else {
-        <div class="section">
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Nom du personnage</mat-label>
-            <input matInput [formControl]="nameControl" />
-            @if (nameControl.hasError('required')) {
-              <mat-error>Le nom est obligatoire.</mat-error>
-            }
-          </mat-form-field>
-        </div>
+  @if (loading()) {
+    <div class="spinner-container">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  } @else {
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nom du personnage</mat-label>
+      <input matInput [formControl]="nameControl" />
+      @if (nameControl.hasError('required')) {
+        <mat-error>Le nom est obligatoire.</mat-error>
       }
-    </mat-card-content>
+    </mat-form-field>
+  }
 
-    <mat-card-actions>
-      @if (!loading()) {
-        <button
-          mat-raised-button
-          color="primary"
-          type="button"
-          [disabled]="nameControl.invalid || saving()"
-          (click)="onSubmit()"
+  <div class="actions">
+    @if (!loading()) {
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        [disabled]="nameControl.invalid || saving()"
+        (click)="onSubmit()"
         >
-          {{ isEditMode() ? 'Enregister le personnage' : 'Créer le personnage' }}
-        </button>
-      }
-    </mat-card-actions>
-  </mat-card>
+        {{ isEditMode() ? 'Enregister le personnage' : 'Créer le personnage' }}
+      </button>
+    }
+  </div>
+
 </div>

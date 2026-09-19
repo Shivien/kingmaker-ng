@@ -1,6 +1,10 @@
 .flex {
   display: flex;
 
+  &.flex--grow > * {
+    flex-grow: 1;
+  }
+
   &.gap--3 {
     gap: var(--size-3);
   }
