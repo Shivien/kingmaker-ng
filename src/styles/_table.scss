@@ -1,15 +1,22 @@
 .ose-table {
-  background-color: var(--mat-sys-surface-container-lowest);
-  border-collapse: collapse;
+  --bg-even: var(--mat-sys-surface-container);
+  --bg-odd: var(--mat-sys-surface-container-high);
+  background-color: var(--bg-even);
+  border-collapse: separate;
+  border-spacing: 0;
   margin-inline: auto;
   min-width: 50%;
 
   thead {
-    border-bottom: var(--border-size-1) solid var(--mat-sys-on-background);
+    background-color: var(--bg-even);
+
+    th, td {
+      border-bottom: var(--border-size-1) solid var(--mat-sys-on-background);
+    }
   }
 
   tbody > :nth-child(odd) {
-    background-color: var(--mat-sys-surface-container-low);
+    background-color: var(--bg-odd);
   }
 
   th, td {
@@ -20,4 +27,17 @@
   th.center, td.center {
     text-align: center;
   }
+
+  .sticky--top {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .sticky--bottom {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+  }
+
 }

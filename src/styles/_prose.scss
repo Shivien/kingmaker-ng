@@ -1,0 +1,7 @@
+/*
+ * Les éléments dans la prose ont un espace au dessus dépendant de la taille de leur font.
+ * Donc un plus gros espace au dessus d'un gros titre que au dessus d'un paragraphe normal.
+ */
+.prose > * + * {
+  margin-block-start: var(--prose-flow, 1em); /* Unité de taille em et non rem important pour être dépendant de la taille de la font du contenu. */
+}

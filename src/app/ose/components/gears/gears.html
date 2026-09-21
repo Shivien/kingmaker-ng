@@ -1,146 +1,141 @@
-<div class="container stack">
+<p class="total-cost">Coût total : <span>{{ total() }}</span> pièces d'or.</p>
 
-  <p class="total-cost">Coût total : <span>{{ total() }}</span> pièces d'or.</p>
+<div class="container stack prose">
 
-  <div class="stack">
-    <h2>Équipements</h2>
+  <h2>Équipements</h2>
 
-    <table class="ose-table gears">
-      <thead>
+  <table class="ose-table gears">
+    <thead class="sticky--top">
+      <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Coût</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (gear of adventuringGears(); track $index) {
         <tr>
-          <th>#</th>
-          <th>Nom</th>
-          <th>Coût</th>
-          <th></th>
+          <td class="amount" [class.zero]="gear.amount === 0">{{ gear.amount }}</td>
+          <td>{{ gear.label }}</td>
+          <td class="center">{{ gear.cost }}</td>
+          <td class="action">
+            <div class="action__grid">
+              <button class="action__button" (click)="updateAmount(adventuringGears, $index, -1)" [disabled]="gear.amount === 0">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <button class="action__button" (click)="updateAmount(adventuringGears, $index, 1)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        @for (gear of adventuringGears(); track $index) {
-          <tr>
-            <td class="amount" [class.zero]="gear.amount === 0">{{ gear.amount }}</td>
-            <td>{{ gear.label }}</td>
-            <td class="center">{{ gear.cost }}</td>
-            <td class="action">
-              <div class="action__grid">
-                <button class="action__button" (click)="updateAmount(adventuringGears, $index, -1)" [disabled]="gear.amount === 0">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <button class="action__button" (click)="updateAmount(adventuringGears, $index, 1)">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+      }
+    </tbody>
+  </table>
 
-  <div class="stack">
-    <h2>Armes</h2>
+  <h2>Armes</h2>
 
-    <table class="ose-table">
-      <thead>
+  <table class="ose-table">
+    <thead class="sticky--top">
+      <tr>
+        <th>#</th>
+        <th>Arme</th>
+        <th>Coût</th>
+        <th>Damage</th>
+        <th>Détails</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (gear of weapons(); track $index) {
         <tr>
-          <th>#</th>
-          <th>Arme</th>
-          <th>Coût</th>
-          <th>Damage</th>
-          <th>Détails</th>
+          <td class="amount" [class.zero]="gear.amount === 0">{{ gear.amount }}</td>
+          <td>{{ gear.label }}</td>
+          <td class="center">{{ gear.cost }}</td>
+          <td class="center">{{ gear.damage }}</td>
+          <td>{{ gear.qualities }}</td>
+          <td class="action">
+            <div class="action__grid">
+              <button class="action__button" (click)="updateAmount(weapons, $index, -1)" [disabled]="gear.amount === 0">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <button class="action__button" (click)="updateAmount(weapons, $index, 1)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        @for (gear of weapons(); track $index) {
-          <tr>
-            <td class="amount" [class.zero]="gear.amount === 0">{{ gear.amount }}</td>
-            <td>{{ gear.label }}</td>
-            <td class="center">{{ gear.cost }}</td>
-            <td class="center">{{ gear.damage }}</td>
-            <td>{{ gear.qualities }}</td>
-            <td class="action">
-              <div class="action__grid">
-                <button class="action__button" (click)="updateAmount(weapons, $index, -1)" [disabled]="gear.amount === 0">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <button class="action__button" (click)="updateAmount(weapons, $index, 1)">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+      }
+    </tbody>
+  </table>
 
-  <div class="stack">
-    <h2>Projectiles</h2>
+  <h2>Projectiles</h2>
 
-    <table class="ose-table">
-      <thead>
+  <table class="ose-table">
+    <thead class="sticky--top">
+      <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Coût</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (gear of ammunitions(); track $index) {
         <tr>
-          <th>#</th>
-          <th>Nom</th>
-          <th>Coût</th>
+          <td class="amount" [class.zero]="gear.amount === 0">{{ gear.amount }}</td>
+          <td>{{ gear.label }}</td>
+          <td class="center">{{ gear.cost }}</td>
+          <td class="action">
+            <div class="action__grid">
+              <button class="action__button" (click)="updateAmount(ammunitions, $index, -1)" [disabled]="gear.amount === 0">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <button class="action__button" (click)="updateAmount(ammunitions, $index, 1)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        @for (gear of ammunitions(); track $index) {
-          <tr>
-            <td class="amount" [class.zero]="gear.amount === 0">{{ gear.amount }}</td>
-            <td>{{ gear.label }}</td>
-            <td class="center">{{ gear.cost }}</td>
-            <td class="action">
-              <div class="action__grid">
-                <button class="action__button" (click)="updateAmount(ammunitions, $index, -1)" [disabled]="gear.amount === 0">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <button class="action__button" (click)="updateAmount(ammunitions, $index, 1)">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+      }
+    </tbody>
+  </table>
 
-  <div class="stack">
-    <h2>Armures</h2>
+  <h2>Armures</h2>
 
-    <table class="ose-table">
-      <thead>
+  <table class="ose-table">
+    <thead class="sticky--top">
+      <tr>
+        <th>#</th>
+        <th>Arme</th>
+        <th>Coût</th>
+        <th>CA</th>
+        <th>Poids</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (gear of armors(); track $index) {
         <tr>
-          <th>#</th>
-          <th>Arme</th>
-          <th>Coût</th>
-          <th>CA</th>
-          <th>Poids</th>
+          <td class="amount" [class.zero]="gear.amount === 0">{{ gear.amount }}</td>
+          <td>{{ gear.label }}</td>
+          <td class="center">{{ gear.cost }}</td>
+          <td class="center">{{ gear.ac }}</td>
+          <td class="center">{{ gear.weight }}</td>
+          <td class="action">
+            <div class="action__grid">
+              <button class="action__button" (click)="updateAmount(armors, $index, -1)" [disabled]="gear.amount === 0">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <button class="action__button" (click)="updateAmount(armors, $index, 1)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        @for (gear of armors(); track $index) {
-          <tr>
-            <td class="amount" [class.zero]="gear.amount === 0">{{ gear.amount }}</td>
-            <td>{{ gear.label }}</td>
-            <td class="center">{{ gear.cost }}</td>
-            <td class="center">{{ gear.ac }}</td>
-            <td class="center">{{ gear.weight }}</td>
-            <td class="action">
-              <div class="action__grid">
-                <button class="action__button" (click)="updateAmount(armors, $index, -1)" [disabled]="gear.amount === 0">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <button class="action__button" (click)="updateAmount(armors, $index, 1)">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+      }
+    </tbody>
+  </table>
 
 </div>
