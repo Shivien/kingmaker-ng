@@ -1,0 +1,43 @@
+<div class="container stack">
+  <h2 class="title--2">Nouvelle carte</h2>
+
+  <div class="grid cols--2">
+    <div>
+      <form [formGroup]="formGroup">
+        <mat-form-field class="full-width">
+          <mat-label>
+            Nom de la carte
+          </mat-label>
+
+          <input matInput formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>
+            Entête de la carte
+          </mat-label>
+
+          <input matInput formControlName="header" />
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>
+            Corps de la carte
+          </mat-label>
+
+          <textarea matInput formControlName="body" rows="10"></textarea>
+        </mat-form-field>
+      </form>
+    </div>
+    <div>
+      <div class="print-card">
+        <div class="card__header">
+          {{ formGroup.controls.header.getRawValue() }}
+        </div>
+        <div class="card__body">
+          <markdown [data]="formGroup.controls.body.getRawValue()"></markdown>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

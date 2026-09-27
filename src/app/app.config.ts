@@ -10,9 +10,11 @@ import { provideHttpClient, withInterceptors, withXhr } from '@angular/common/ht
 import { jwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { GoogleLoginProvider, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { environment } from '../environments/environment.development';
+import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideMarkdown(),
     // Détection des changements optimisée (OnPush / Signals par défaut dans Angular 22)
     provideZoneChangeDetection({ eventCoalescing: true }),
     // Configuration HTTP avec injection automatique du JWT backend

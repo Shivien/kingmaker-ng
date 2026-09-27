@@ -1,0 +1,73 @@
+.print-card {
+  background-color: white;
+  color: black;
+  margin-inline: auto;
+  height: 3.5in;
+  width: 2.5in;
+}
+
+.print-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 2.5in);
+}
+
+.print-card {
+  border: black solid 1px;
+  height: 3.5in;
+  width: 2.5in;
+
+  font-family: 'Times New Roman', Times, serif;
+
+  .card__header {
+    border-bottom: black solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: .5rem;
+    height: 2rem;
+  }
+
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    font-size: .5rem;
+    padding-inline: .5rem;
+
+    .keywords {
+      display: flex;
+      margin-block: .25rem;
+
+      font-style: italic;
+      text-transform: lowercase;
+
+      & > :not(:first-child)::before {
+        content: "\00a0\2014\00a0";
+      }
+    }
+
+    .components {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: .5rem;
+
+      & > * {
+        flex-basis: 40%;
+        flex-grow: 1;
+      }
+    }
+
+    p {
+      margin-block: 0;
+      text-align: justify;
+    }
+  }
+
+}
+
+@media print {
+  .print-card {
+    break-inside: avoid-page;
+  }
+}

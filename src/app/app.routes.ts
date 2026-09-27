@@ -38,6 +38,23 @@ export const routes: Routes = [
         ],
       },
       {
+        path: 'card',
+        data: { breadcrumb: 'Cartes' },
+        children: [
+          {
+            title: 'Cartes',
+            path: '',
+            loadComponent: () => import('./card/components/card-list/card-list').then(m => m.CardList),
+          },
+          {
+            title: 'Nouvelle carte',
+            path: 'new',
+            data: { breadcrumb: 'Nouvelle carte' },
+            loadComponent: () => import('./card/components/card-edit/card-edit').then(m => m.CardEdit),
+          },
+        ],
+      },
+      {
         path: 'ose',
         canActivateChild: [roleGuard(['administrator'])],
         children: [

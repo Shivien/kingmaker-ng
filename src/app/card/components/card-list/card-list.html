@@ -1,0 +1,19 @@
+<div class="container stack">
+  <h2 class="title--2">Liste des cartes</h2>
+
+  @if (loading()) {
+    <div class="spinner-container">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  }
+  @else {
+    <div class="stack">
+      <div>
+        <a matButton routerLink="/card/new">
+          <mat-icon>add</mat-icon>
+          <span>Créer une nouvelle carte</span>
+        </a>
+      </div>
+    </div>
+  }
+</div>

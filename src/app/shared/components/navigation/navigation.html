@@ -12,6 +12,16 @@
         <a mat-list-item (click)="onLinkClick()">Cités</a>
       </mat-action-list>
     </details>
+
+    <details class="expandable" name="nav-expandable">
+      <summary class="expandable__toggle nav-title">
+        Cartes
+      </summary>
+
+      <mat-action-list>
+        <a mat-list-item (click)="onLinkClick()" routerLink="/card" routerLinkActive="active">Cartes</a>
+      </mat-action-list>
+    </details>
   }
 
   @if (authStore.isAdmin()) {
